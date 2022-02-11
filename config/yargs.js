@@ -11,17 +11,17 @@ const argv = require('yargs')
         default: false,
         describe: 'Muestra la tabla en consola'
     })
-    .check((argv, options) => {
-        if (isNaN(argv.b)) {
-            throw 'La base tiene que ser un número';
-        }
-        return true;
-    })
     .option('h', {
         alias: 'hasta',
         type: 'number',
         demandOption: false,
         describe: 'Es el número hasta el cual quiero multiplicar'
+    })
+    .check((argv, options) => {
+        if (isNaN(argv.b)) {
+            throw 'La base tiene que ser un número';
+        }
+        return true;
     })
     .argv;
 
